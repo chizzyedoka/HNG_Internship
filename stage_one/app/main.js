@@ -17,7 +17,7 @@ app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   const query = req.query;
   res.status(200).send({
     slack_name: "Chisom Edoka",
@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
     utc_time: today,
     track: "backend",
     github_file_url:
-      "https://github.com/chizzyedoka/HNG_Internship/blob/master/stage_one/main.js",
+      "https://github.com/chizzyedoka/HNG_Internship/blob/master/stage_one/app/main.js",
     github_repo_url: "https://github.com/chizzyedoka/HNG_Internship",
     status_code: "200",
     query,
