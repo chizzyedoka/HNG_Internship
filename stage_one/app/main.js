@@ -18,6 +18,7 @@ app.listen(PORT, () => {
 });
 
 app.get("/", (req, res) => {
+  const query = req.query;
   res.status(200).send({
     slack_name: "Chisom Edoka",
     current_day: days[dayOfWeekIndex],
@@ -27,5 +28,6 @@ app.get("/", (req, res) => {
       "https://github.com/chizzyedoka/HNG_Internship/blob/master/stage_one/main.js",
     github_repo_url: "https://github.com/chizzyedoka/HNG_Internship",
     status_code: "200",
+    query,
   });
 });
