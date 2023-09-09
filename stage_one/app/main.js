@@ -1,5 +1,9 @@
 const express = require("express");
 const app = express();
+
+// Middleware to parse query parameters
+app.use(express.urlencoded({ extended: false }));
+
 require("dotenv").config();
 const today = new Date();
 const todayFormatted =
