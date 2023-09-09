@@ -20,7 +20,7 @@ app.listen(PORT, () => {
 app.get("/api", (req, res) => {
   const { track, slack_name } = req.query;
   if (!track || !slack_name) {
-    res.send("Give a track and slack_name as parameters");
+    res.send("Enter track and slack_name as query parameters");
     return;
   }
   const query = req.query;
