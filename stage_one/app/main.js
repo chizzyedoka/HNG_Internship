@@ -1,10 +1,8 @@
 const express = require("express");
-const dotenv = require("dotenv");
 const app = express();
-dotenv.config({ path: ".env" });
-const PORT = 3000;
+require("dotenv").config();
 const today = new Date();
-console.log(today);
+const todayFormatted = new Date().toISOString().split(".")[0] + "Z";
 const days = [
   "Sunday",
   "Monday",
@@ -29,7 +27,7 @@ app.get("/api", (req, res) => {
   res.status(200).send({
     slack_name,
     current_day: days[dayOfWeekIndex],
-    utc_time: today,
+    utc_time: todayFormatted,
     track,
     github_file_url:
       "https://github.com/chizzyedoka/HNG_Internship/blob/master/stage_one/app/main.js",
