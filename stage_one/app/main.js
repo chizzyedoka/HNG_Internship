@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 const today = new Date();
-const todayFormatted = new Date().toISOString().split(".")[0] + "Z";
+const todayFormatted = today.toISOString().split(".")[0] + "Z";
 const days = [
   "Sunday",
   "Monday",
