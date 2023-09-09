@@ -1,5 +1,7 @@
 const express = require("express");
+const dotenv = require("dotenv");
 const app = express();
+dotenv.config({ path: ".env" });
 const PORT = 3000;
 const today = new Date();
 console.log(today);
@@ -13,8 +15,8 @@ const days = [
   "Saturday",
 ];
 const dayOfWeekIndex = today.getDay();
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Listening on port ${process.env.PORT}`);
 });
 
 app.get("/api", (req, res) => {
