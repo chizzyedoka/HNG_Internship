@@ -1,25 +1,22 @@
 const express = require("express");
+const moment = require("moment");
 const app = express();
 
 // Middleware to parse query parameters
 app.use(express.urlencoded({ extended: false }));
 
 require("dotenv").config();
-// const today = new Date();
-// console.log(today.getTimezoneOffset());
-// const utcTime =
-//   new Date(today.getTime() + today.getTimezoneOffset() * 60000)
-//     .toISOString()
-//     .split(".")[0] + "Z";
-// console.log(utcTime);
+
+const currentUtcTime = moment().utcOffset(0).format("YYYY-MM-DDTHH:mm:ss[Z]");
+console.log({ currentUtcTime });
+
 const today = new Date();
-console.log(today.getTimezoneOffset());
 
 const utcTime =
   new Date(today.getTime() + today.getTimezoneOffset() * 60000)
     .toISOString()
     .split(".")[0] + "Z";
-console.log(utcTime);
+console.log({ utcTime });
 
 const days = [
   "Sunday",
@@ -45,7 +42,7 @@ app.get("/api", (req, res) => {
   res.status(200).send({
     slack_name,
     current_day: days[dayOfWeekIndex],
-    utc_time: utcTime,
+    utc_time: currentUtcTime,
     track,
     github_file_url:
       "https://github.com/chizzyedoka/HNG_Internship/blob/master/stage_one/app/main.js",
