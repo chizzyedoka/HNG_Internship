@@ -16,7 +16,7 @@ const today = new Date();
 console.log(today.getTimezoneOffset());
 
 const utcTime =
-  new Date(today.getTime() - today.getTimezoneOffset() * 60000)
+  new Date(today.getTime() + today.getTimezoneOffset() * 60000)
     .toISOString()
     .split(".")[0] + "Z";
 console.log(utcTime);
