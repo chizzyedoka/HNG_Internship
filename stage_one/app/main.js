@@ -10,7 +10,10 @@ const today = new Date();
 //   new Date(today.getTime() + today.getTimezoneOffset() * 60000)
 //     .toISOString()
 //     .split(".")[0] + "Z";
-const todayFormatted = today.toISOString().slice(0, -5) + "Z";
+const todayFormatted =
+  new Date(today.getTime() + today.getTimezoneOffset() * 60000)
+    .toISOString()
+    .slice(0, -5) + "Z";
 const days = [
   "Sunday",
   "Monday",
@@ -41,5 +44,6 @@ app.get("/api", (req, res) => {
       "https://github.com/chizzyedoka/HNG_Internship/blob/master/stage_one/app/main.js",
     github_repo_url: "https://github.com/chizzyedoka/HNG_Internship",
     status_code: "200",
+    trial: "me",
   });
 });
