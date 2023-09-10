@@ -6,10 +6,11 @@ app.use(express.urlencoded({ extended: false }));
 
 require("dotenv").config();
 const today = new Date();
-const todayFormatted =
-  new Date(today.getTime() + today.getTimezoneOffset() * 60000)
-    .toISOString()
-    .split(".")[0] + "Z";
+// const todayFormatted =
+//   new Date(today.getTime() + today.getTimezoneOffset() * 60000)
+//     .toISOString()
+//     .split(".")[0] + "Z";
+const todayFormatted = today.toISOString().slice(0, -5) + "Z";
 const days = [
   "Sunday",
   "Monday",
