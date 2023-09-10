@@ -50,7 +50,7 @@ app.get("/api", (req, res) => {
     return;
   }
   const query = req.query;
-  res.status(200).send({
+  res.status(200).json({
     slack_name,
     current_day: currentDay,
     utc_time: currentUtcTime,
@@ -58,6 +58,6 @@ app.get("/api", (req, res) => {
     github_file_url:
       "https://github.com/chizzyedoka/HNG_Internship/blob/master/stage_one/app/main.js",
     github_repo_url: "https://github.com/chizzyedoka/HNG_Internship",
-    status_code: "200",
+    status_code: 200,
   });
 });
