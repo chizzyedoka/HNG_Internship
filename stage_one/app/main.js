@@ -7,10 +7,6 @@ app.use(express.urlencoded({ extended: false }));
 
 require("dotenv").config();
 
-const currentDay = moment().utc().format("dddd");
-const currentUtcTime = moment().utcOffset(0).format("YYYY-MM-DDTHH:mm:ss[Z]");
-console.log({ currentUtcTime });
-
 const today = new Date();
 
 const utcTime =
@@ -44,6 +40,8 @@ const utcDami = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
 console.log({ utcDami });
 
 app.get("/api", (req, res) => {
+  const currentDay = moment().utc().format("dddd");
+  const currentUtcTime = moment().utcOffset(0).format("YYYY-MM-DDTHH:mm:ss[Z]");
   const { track, slack_name } = req.query;
   if (!track || !slack_name) {
     res.send("Enter track and slack_name as query parameters");
