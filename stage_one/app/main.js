@@ -7,6 +7,7 @@ app.use(express.urlencoded({ extended: false }));
 
 require("dotenv").config();
 
+const currentDay = moment().utc().format("dddd");
 const currentUtcTime = moment().utcOffset(0).format("YYYY-MM-DDTHH:mm:ss[Z]");
 console.log({ currentUtcTime });
 
@@ -32,6 +33,16 @@ app.listen(process.env.PORT, () => {
   console.log(`Listening on port ${process.env.PORT}`);
 });
 
+const currentDate = new Date();
+const year = currentDate.getUTCFullYear();
+const month = String(currentDate.getUTCMonth() + 1).padStart(2, "0");
+const day = String(currentDate.getUTCDate()).padStart(2, "0");
+const hours = String(currentDate.getUTCHours()).padStart(2, "0");
+const minutes = String(currentDate.getUTCMinutes()).padStart(2, "0");
+const seconds = String(currentDate.getUTCSeconds()).padStart(2, "0");
+const utcDami = `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
+console.log({ utcDami });
+
 app.get("/api", (req, res) => {
   const { track, slack_name } = req.query;
   if (!track || !slack_name) {
@@ -41,7 +52,7 @@ app.get("/api", (req, res) => {
   const query = req.query;
   res.status(200).send({
     slack_name,
-    current_day: days[dayOfWeekIndex],
+    current_day: currentDay,
     utc_time: currentUtcTime,
     track,
     github_file_url:
