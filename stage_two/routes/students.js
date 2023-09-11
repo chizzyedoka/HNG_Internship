@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Student } = require("../models/students");
+const { Student, validateStudent } = require("../models/students");
 
 // endpoint to get all students in the Internship
 router.get("/", async (req, res) => {
@@ -10,8 +10,18 @@ router.get("/", async (req, res) => {
 
 // endpoint to add a student
 router.post("/", async (req, res) => {
+  // validate body of request
+  const { error } = validateStudent(req.body);
+
+  if (error) return res.status(400).send(error.details[0].message);
+
+  // check if student is in database
+  let student = await Student.findOne({ email: req.body.email });
+
+  if (student) return res.status(400).send("Student already exists");
+
   // create a new student
-  let student = new Student({
+  student = new Student({
     name: req.body.name,
     email: req.body.email,
     track: req.body.track,

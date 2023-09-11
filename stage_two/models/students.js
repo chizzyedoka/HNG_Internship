@@ -1,6 +1,13 @@
 const Joi = require("joi");
 const mongoose = require("mongoose");
 
+const studentTrack = {
+  frontend: "frontend",
+  backend: "backend",
+  mobile: "mobile",
+  design: "design",
+};
+
 const studentSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -22,6 +29,24 @@ const studentSchema = new mongoose.Schema({
   },
 });
 
+// validate the student from the client side
+function validateStudent(student) {
+  const schema = Joi.object({
+    name: Joi.string().min(5).max(50).required(),
+    email: Joi.string().min(5).max(255).required().email(),
+    track: Joi.string()
+      .valid(
+        studentTrack.frontend,
+        studentTrack.backend,
+        studentTrack.mobile,
+        studentTrack.design
+      )
+      .required(),
+  });
+  return schema.validate(student);
+}
+
 const Student = mongoose.model("Student", studentSchema);
 
 module.exports.Student = Student;
+module.exports.validateStudent = validateStudent;
