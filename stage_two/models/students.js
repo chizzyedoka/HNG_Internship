@@ -15,7 +15,11 @@ const studentSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 255,
   },
-  track: {},
+  track: {
+    type: String,
+    required: true,
+    enum: ["frontend", "backend", "mobile", "design"],
+  },
 });
 
 const Student = mongoose.model("Student", studentSchema);
