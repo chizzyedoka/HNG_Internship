@@ -1,3 +1,4 @@
+const students = require("./routes/students");
 const mongoose = require("mongoose");
 const express = require("express");
 const app = express();
@@ -11,8 +12,10 @@ mongoose
   })
   .then(() => console.log("Connected to MongoDB..."))
   .catch((err) => console.error("Could not connect to MongoDB...", err));
+
 //middleware
 app.use(express.json());
+app.use("/api/students", students);
 
 app.get("/", (req, res) => {
   res.status(200).send("Welcome to HomePage");
