@@ -70,7 +70,7 @@ router.delete("/:name", async (req, res) => {
   const fullName = req.params.name;
   const student = await Student.findOneAndDelete({ name: fullName });
   if (!student)
-    return res.status(400).send(`Student with name ${fullName} doesn't exist`);
+    return res.status(404).send(`Student with name ${fullName} doesn't exist`);
   res.send(student);
 });
 

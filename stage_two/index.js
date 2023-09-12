@@ -1,11 +1,13 @@
 const students = require("./routes/students");
 const mongoose = require("mongoose");
 const express = require("express");
+require("dotenv").config();
+const uri = process.env.MONGODB_URI;
 const app = express();
 const port = 1000;
 
 mongoose
-  .connect("mongodb://0.0.0.0:27017/hngInternship", {
+  .connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useUnifiedTopology: true,
@@ -16,11 +18,17 @@ mongoose
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use("/api/students", students);
 
-app.get("/", (req, res) => {
-  res.status(200).send("Welcome to HomePage");
-});
+app.use("/api", students);
+
+app.get("*", (req, res) =>
+  res.status(404).send({
+    error: {
+      code: 404,
+      message: "Invalid API route",
+    },
+  })
+);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
