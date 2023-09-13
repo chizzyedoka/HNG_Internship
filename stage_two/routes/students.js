@@ -27,7 +27,10 @@ router.post("/", async (req, res) => {
   // check if student is in database
   let student = await Student.findOne({ email: req.body.email });
 
-  if (student) return res.status(400).send("Student already exists");
+  if (student)
+    return res.status(400).json({
+      error: "Students already exits",
+    });
 
   // create a new student
   student = new Student({
