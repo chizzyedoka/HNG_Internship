@@ -6,6 +6,8 @@ const uri = process.env.MONGODB_URI;
 const app = express();
 const port = 1000;
 
+// Access and log the MONGO_URI
+
 mongoose
   .connect(uri, {
     useNewUrlParser: true,
