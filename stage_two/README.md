@@ -1,10 +1,13 @@
 # HNG TASK 2 Project with Node JS and Express
 
+CLICK [HERE](https://documenter.getpostman.com/view/28273848/2s9YC4VDBD) TO VIEW THE API DOCUMENTATION
+
 ## Installation
 
 1. Clone the repository
 
-   ```git clone https://github.com/chizzyedoka/HNG_Internship
+   ```
+   git clone https://github.com/chizzyedoka/HNG_Internship
       cd stage_two
    ```
 
