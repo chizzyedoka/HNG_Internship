@@ -1,0 +1,1295 @@
+{
+	"info": {
+		"_postman_id": "ba3c92a5-9d29-4b60-8c0d-62ba14b2461c",
+		"name": "Student Person Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28273848"
+	},
+	"item": [
+		{
+			"name": "Register new student success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body is valid JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"franklin\",\r\n    \"email\": \"franklin@gmail.com\",\r\n    \"track\": \"backend\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register new student success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"franklin\",\r\n    \"email\": \"franklin@gmail.com\",\r\n    \"track\": \"backend\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Sep 2023 17:56:42 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "806a82123ab74595-LHR"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"6b-LNhn6hBIyPgFW2o1AoWKqBN3t+k\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"franklin\",\n    \"email\": \"franklin@gmail.com\",\n    \"track\": \"backend\",\n    \"_id\": \"6503495a18d59b1298210655\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Register Duplicate students failed",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body is valid JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"edoka\",\r\n    \"email\": \"edoka@gmail.com\",\r\n    \"track\": \"backend\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Register Duplicate students failed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"edoka\",\r\n    \"email\": \"edoka@gmail.com\",\r\n    \"track\": \"backend\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hng-stage-two-4whi.onrender.com/api",
+							"protocol": "https",
+							"host": [
+								"hng-stage-two-4whi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Sep 2023 16:50:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "806a21a0b89c71bd-LHR"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"22-oBYGkrKUEku+qIBL0+KGk7/8af4\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"Students already exits\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GET Invalid url",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 400\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body is valid JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET Invalid url",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://hng-stage-two-4whi.onrender.com/",
+							"protocol": "https",
+							"host": [
+								"hng-stage-two-4whi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Sep 2023 16:53:43 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "806a25ccde0371bd-LHR"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-MXvibgniZNADgq5ka/kHf0+g2Ec\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"code\": 404,\n        \"message\": \"Invalid API route\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "GET students",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body is valid JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body contains a success message\", function () {\r",
+							"    const responseBody = pm.response.json();\r",
+							"     // Replace \"User deleted successfully\" with the expected success message.\r",
+							"    // Add additional property validations as needed.\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "divine",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "divineedoka48@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "track",
+							"value": "design",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseurl}}/api",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET all students success 200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hng-stage-two-4whi.onrender.com/api/chinonso",
+							"protocol": "https",
+							"host": [
+								"hng-stage-two-4whi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"chinonso"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 13 Sep 2023 16:40:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8061d4be5a6a71cf-LHR"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"142-k3ZRH61Xr/qIwOKS8M8nz1WPly4\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"6501aa700a00a77f09bcd19b\",\n        \"name\": \"edoka\",\n        \"email\": \"chisomedoka@gmail.com\",\n        \"track\": \"frontend\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6501bedb134df739995c081e\",\n        \"name\": \"chisom\",\n        \"email\": \"chisom@gmail.com\",\n        \"track\": \"backend\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"6501c0bb90de28dc2d4bd532\",\n        \"name\": \"divine\",\n        \"email\": \"divineedoka@gmail.com\",\n        \"track\": \"design\",\n        \"__v\": 0\n    }\n]"
+				},
+				{
+					"name": "GET one student success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/chisom",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"chisom"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Sep 2023 16:56:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "806a29ee797071bd-LHR"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"68-/0/CMOypnQ7qG4up1L+Evn9+uw8\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"6503354f4442f9bc1251f9d2\",\n    \"name\": \"chisom\",\n    \"email\": \"chisom@gmail.com\",\n    \"track\": \"frontend\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "one student failure 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/ife",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"ife"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "one student failure 404",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hng-stage-two-4whi.onrender.com/api/ife",
+							"protocol": "https",
+							"host": [
+								"hng-stage-two-4whi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"ife"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Sep 2023 16:57:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "806a2bf4b87a71bd-LHR"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23-o++oG+ymfAt/raFu1GT/FgxMEL8\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "Student with name ife doesn't exist"
+				}
+			]
+		},
+		{
+			"name": "PUT update student info success 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body is valid JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"francis\",\r\n    \"email\":\"francis@gmail.com\",\r\n    \"track\":\"design\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/divine",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"divine"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "chisom@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "track",
+							"value": "backend",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "PUT update student info success 200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"kareem\",\r\n    \"email\":\"kareem@gmail.com\",\r\n    \"track\":\"frontend\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseurl}}/api/edoka",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"edoka"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "chisom@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "track",
+									"value": "backend",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Sep 2023 17:12:59 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "806a420a0dcadc45-LHR"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"68-l2hgqR/d/9tIQRPQGmJRqhC6Va4\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"6503366c4442f9bc1251f9d7\",\n    \"name\": \"kareem\",\n    \"email\": \"kareem@gmail.com\",\n    \"track\": \"frontend\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "update student info failed 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body is valid JSON\", function () {\r",
+							"    pm.response.to.be.json;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"chinonso\",\r\n    \"email\": \"chisom@gmail.com\",\r\n    \"track\": \"backend\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseurl}}/api/mide",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"mide"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "chisom@gmail.com",
+							"disabled": true
+						},
+						{
+							"key": "track",
+							"value": "backend",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update student info failed 404",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"chinonso\",\r\n    \"email\": \"chisom@gmail.com\",\r\n    \"track\": \"backend\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hng-stage-two-4whi.onrender.com/api/mide",
+							"protocol": "https",
+							"host": [
+								"hng-stage-two-4whi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"mide"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "chisom@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "track",
+									"value": "backend",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Sep 2023 17:14:39 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "806a4477df98dc45-LHR"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3c-TiajqqRJopy3bBAUFQgsnvs5qys\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"message\": \"Student with name mide doesn't exist\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE student info by name 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response body contains a success message\", function () {\r",
+							"    const responseBody = pm.response.json();\r",
+							"    pm.expect(responseBody).to.be.an(\"object\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseurl}}/api/kareem",
+					"host": [
+						"{{baseurl}}"
+					],
+					"path": [
+						"api",
+						"kareem"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DELETE student not Found 404",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://hng-stage-two-4whi.onrender.com/api/mide",
+							"protocol": "https",
+							"host": [
+								"hng-stage-two-4whi",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"mide"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 13 Sep 2023 16:51:37 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "8061e55b4bd071cf-LHR"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"40-F6vfLtaGZxE0MR0T20Q51D9gVLY\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"message\": \"Student with name chinonso doesn't exist\"\n    }\n}"
+				},
+				{
+					"name": "DELETE student success 200",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseurl}}/api/kareem",
+							"host": [
+								"{{baseurl}}"
+							],
+							"path": [
+								"api",
+								"kareem"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 14 Sep 2023 17:18:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "806a4a606d82dc45-LHR"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"68-l2hgqR/d/9tIQRPQGmJRqhC6Va4\""
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "x-powered-by",
+							"value": "Express"
+						},
+						{
+							"key": "x-render-origin-server",
+							"value": "Render"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"6503366c4442f9bc1251f9d7\",\n    \"name\": \"kareem\",\n    \"email\": \"kareem@gmail.com\",\n    \"track\": \"frontend\",\n    \"__v\": 0\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseurl",
+			"value": "https://hng-stage-two-4whi.onrender.com",
+			"type": "string"
+		}
+	]
+}

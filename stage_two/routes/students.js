@@ -69,7 +69,7 @@ router.put("/:name", async (req, res) => {
 
   // student = await student.save();
   // student exists in database
-  res.send(student);
+  res.status(200).send(student);
 });
 
 // router to delete

@@ -33,3 +33,9 @@ This documentation provides details on how to use the CRUD (Create, Read, Update
 - **Endpoint**: DELETE baseurl/api/studentName.
 - **Request Body**: Body of request is empty
 - **Response**: Returns deleted student information with status code 200 if studentName exists in database, else an error message with status code 404.
+
+## How To Test Automatically
+
+- Import the POSTMAN collection.
+- Click on the dropdown of the collection and then click on generate tests.
+- locate run collection on the top right corner of POSTMAN
